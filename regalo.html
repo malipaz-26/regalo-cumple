@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Amor! ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rojo-oscuro: #7a0916;
+            --rojo-principal: #c9182b;
+            --rojo-brillante: #e63946;
+            --rojo-suave: #fff0f3;
+            --dorado: #ffd166;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top, #a4133c, #590d22);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #2b2d42;
+            overflow-x: hidden;
+        }
+
+        /* Pantalla de Portada (Tarjeta Cerrada) */
+        .portada {
+            background: linear-gradient(145deg, var(--rojo-principal), var(--rojo-oscuro));
+            border: 3px solid var(--dorado);
+            border-radius: 24px;
+            padding: 50px 35px;
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            animation: flotar 3s ease-in-out infinite;
+        }
+
+        .portada:hover {
+            transform: scale(1.03);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .icono-corazon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: latido 1.2s infinite;
+        }
+
+        @keyframes latido {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.18); }
+        }
+
+        .portada h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.4rem;
+            color: var(--dorado);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .portada p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .btn-abrir {
+            background-color: var(--dorado);
+            color: var(--rojo-oscuro);
+            border: none;
+            padding: 14px 32px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-abrir:hover {
+            background-color: #ffe08a;
+            transform: scale(1.05);
+        }
+
+        /* Interior de la Tarjeta (Oculto inicialmente) */
+        .interior {
+            display: none;
+            background: white;
+            max-width: 680px;
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+            border: 3px solid var(--rojo-brillante);
+            animation: abrirTarjeta 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes abrirTarjeta {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .encabezado-vale {
+            background: linear-gradient(135deg, var(--rojo-principal), var(--rojo-oscuro));
+            color: white;
+            padding: 35px 25px;
+            text-align: center;
+            border-bottom: 4px dashed var(--dorado);
+        }
+
+        .etiqueta-vale {
+            display: inline-block;
+            background: var(--dorado);
+            color: var(--rojo-oscuro);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            padding: 5px 16px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .encabezado-vale h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+
+        .encabezado-vale p {
+            font-size: 1.1rem;
+            color: #ffccd5;
+        }
+
+        .contenido {
+            padding: 30px 25px;
+        }
+
+        /* Tarjetas de Información */
+        .grid-info {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 28px;
+        }
+
+        .item-info {
+            background: var(--rojo-suave);
+            border-left: 5px solid var(--rojo-principal);
+            padding: 16px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .item-icono {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .item-texto h3 {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            color: var(--rojo-oscuro);
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .item-texto p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .btn-maps {
+            display: inline-block;
+            margin-top: 8px;
+            background: var(--rojo-principal);
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-maps:hover {
+            background: var(--rojo-oscuro);
+        }
+
+        /* Galería de Imágenes */
+        .titulo-galeria {
+            text-align: center;
+            color: var(--rojo-oscuro);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .galeria img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid #ffccd5;
+            transition: transform 0.3s ease;
+        }
+
+        .galeria img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Postdata */
+        .postdata {
+            background: #fff8e7;
+            border: 2px dashed var(--rojo-brillante);
+            border-radius: 14px;
+            padding: 16px 20px;
+            text-align: center;
+            color: var(--rojo-oscuro);
+            font-size: 0.98rem;
+        }
+
+        .postdata strong {
+            color: var(--rojo-principal);
+        }
+
+        /* Confeti / Corazones flotantes */
+        .particula {
+            position: fixed;
+            top: -10px;
+            font-size: 1.4rem;
+            pointer-events: none;
+            animation: caer linear forwards;
+            z-index: 999;
+        }
+
+        @keyframes caer {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+            .galeria img {
+                height: 200px;
+            }
+            .portada h1 {
+                font-size: 2.8rem;
+            }
+            .encabezado-vale h2 {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PORTADA DE LA TARJETA -->
+    <div class="portada" id="portada" onclick="abrirTarjeta()">
+        <div class="icono-corazon">❤️</div>
+        <h1>¡Feliz Cumpleaños!</h1>
+        <p>Tengo una sorpresa especial preparada para ti...</p>
+        <button class="btn-abrir">Abrir mi regalo 🎁</button>
+    </div>
+
+    <!-- INTERIOR DE LA TARJETA -->
+    <div class="interior" id="interior">
+        <div class="encabezado-vale">
+            <span class="etiqueta-vale">🎟️ Vale de Regalo</span>
+            <h2>Un día en Domos Anulen</h2>
+            <p>Con tinaja privada y asadito juntos ❤️</p>
+        </div>
+
+        <div class="contenido">
+            <div class="grid-info">
+                <!-- Dónde -->
+                <div class="item-info">
+                    <div class="item-icono">📍</div>
+                    <div class="item-texto">
+                        <h3>¿Dónde?</h3>
+                        <p><strong>Domos Anulen Puerto Varas</strong> (a solo 30 min de Puerto Varas).</p>
+                        <a href="https://share.google/KrpiBsQbOSO1qcRQu" target="_blank" rel="noopener noreferrer" class="btn-maps">
+                            Ver ubicación en Google Maps 🗺️
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cuándo -->
+                <div class="item-info">
+                    <div class="item-icono">📅</div>
+                    <div class="item-texto">
+                        <h3>¿Cuándo?</h3>
+                        <p><strong>Sábado 21</strong> — Check-in a las <strong>15:00 hrs</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- Qué incluye -->
+                <div class="item-info">
+                    <div class="item-icono">🔥</div>
+                    <div class="item-texto">
+                        <h3>¿Qué incluye?</h3>
+                        <p>Tinajita privada con vista al volcán y un asadito premium para celebrar como te mereces[cite: 1, 3].</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fotos del lugar -->
+            <div class="titulo-galeria">Un adelanto de nuestro destino ✨</div>
+            <div class="galeria">
+                <!-- Reemplaza estos nombres con los de tus archivos de imagen -->
+                <img src="1000501423.jpg" alt="Terraza con parrilla y tinaja">
+                <img src="1000501422.jpg" alt="Domos Anulen vista exterior">
+                <img src="1000501424.jpg" alt="Tinaja con vista al volcán">
+            </div>
+
+            <!-- Postdata -->
+            <div class="postdata">
+                <strong>P.D.:</strong> La única condición para hacer válido este regalo es que <strong>tú manejes</strong> jiji 🚗💨❤️
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function abrirTarjeta() {
+            document.getElementById('portada').style.display = 'none';
+            document.getElementById('interior').style.display = 'block';
+            lanzarCorazones();
+        }
+
+        function lanzarCorazones() {
+            const emojis = ['❤️', '💖', '🥂', '🥩', '✨', '🎉'];
+            for (let i = 0; i < 35; i++) {
+                setTimeout(() => {
+                    const particula = document.createElement('div');
+                    particula.classList.add('particula');
+                    particula.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                    particula.style.left = Math.random() * 100 + 'vw';
+                    particula.style.animationDuration = (Math.random() * 2 + 2.5) + 's';
+                    document.body.appendChild(particula);
+
+                    setTimeout(() => {
+                        particula.remove();
+                    }, 4500);
+                }, i * 80);
+            }
+        }
+    </script>
+</body>
+</html>
